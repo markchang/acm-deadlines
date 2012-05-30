@@ -5,3 +5,5 @@ The goal is to provide a different interface to the ACM conference deadline cale
   * sort by date
   * sort by location
   * sort by conference
+
+The data is scraped statically from http://campus.acm.org/public/cfpcal/Index.cfm
