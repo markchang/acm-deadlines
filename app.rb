@@ -12,6 +12,22 @@ get '/' do
 	erb :index
 end
 
+get '/list' do
+	@uri = URI.parse(ENV['MONGOLAB_URI'])
+	@conn = Mongo::Connection.from_uri(ENV['MONGOLAB_URI'])
+	@db   = @conn.db(@uri.path.gsub(/^\//, ''))
+	@coll = @db['acm_deadlines']
+
+	@conferences = []
+
+	# find everything
+	@coll.find.each do |conference|
+		@conferences << conference
+	end
+
+	erb :list, :locals => {:conferences => @conferences}
+end
+
 get '/data' do
 	content_type :json
 

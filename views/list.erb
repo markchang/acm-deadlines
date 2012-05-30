@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            ACM Deadlines for the next 6 months
+        </title>
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+        <style type="text/css">
+            body {
+              padding-top: 20px;
+              padding-bottom: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <h1>
+                        ACM Deadlines for the next 6 months
+                    </h1>
+                    <h3>
+                        <a href="/">Show Map</a> | <a href="http://markchang.net/acm-deadlines/">GitHub</a>
+                    </h3>
+
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td><b>Name</b></td>
+                                <td><b>Deadline</b></td>
+                                <td><b>Location</b></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% conferences.each do |conference| %>
+                                <tr>
+                                    <td><a href="<%= conference['link']%>">
+                                        <%= conference['name']%></a></td>
+                                    <td><%= conference['date'].strftime("%F") %></td>
+                                    <td><%= conference['location'] %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
